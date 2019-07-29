@@ -1,7 +1,7 @@
 <?php
-class Ingredient {
-    const QUERY_ADDINGREDIENT = 'SELECT *
-    FROM ingredient
+class Commande {
+    const QUERY_DISPLAYCOMMANDE = 'SELECT *
+    FROM commande
     WHERE 1';
     // const QUERY_DISPLAYSINGLECOMMANDE=' SELECT *
     // FROM utilisateurs AS u
