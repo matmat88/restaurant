@@ -1,5 +1,5 @@
 <?php
-class Commande {
+class CommandeModel {
     const QUERY_DISPLAYCOMMANDE = 'SELECT *
     FROM commande
     WHERE 1';
