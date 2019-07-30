@@ -1,5 +1,5 @@
 <?php
-class Ingredient {
+class IngredientModel {
     const QUERY_ADDINGREDIENT = 'SELECT *
     FROM ingredient
     WHERE 1';
