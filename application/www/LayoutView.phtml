@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
 
     <!-- Feuilles de styles de l'application -->
-    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/3wa-resto.css">
+    <!-- <link rel="stylesheet" href="<?= $wwwUrl ?>/css/3wa-resto.css">
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-button.css">
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-form.css">
-    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-table.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-table.css"> -->
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/index.css">
+
+    <!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla"> -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Subrayada&display=swap" rel="stylesheet"> 
 
     <!-- Librairie jQuery -->
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -24,19 +28,22 @@
 
 <!-- En-tête commune -->
 <header>
-    <h1>
+    <div>
         <a href="<?= $requestUrl ?>">
-            <img src="<?= $wwwUrl ?>/images/logo.gif" height="63" width="57" alt="3WA Restaurant">Restaurant - Made In America !
+            <img src="<?= $wwwUrl ?>/images/pitaya-logo-white_02.png" alt="3WA Restaurant">
+        
+        <h1 class="Subrayada">Notre Restaurant 3WA !</h1>
         </a>
-    </h1>
+    </div>
+    <!-- Interface utilisateur -->
+<nav class="user-interface">
+    <a href="<?= $requestUrl ?>/menu">Formules Menu</a>
+    <a href="#">Ma Commande</a> 
+</nav>
 </header>
 
-<!-- Interface utilisateur -->
-<nav class="user-interface">
-    <ul class="link-list">
-        <!-- Code HTML/PHP à écrire -->
-    </ul>
-</nav>
+
+
 
 <main>
     <!-- Affichage du template lié à la vue -->
@@ -45,12 +52,36 @@
 
 <!-- Pied de page commun -->
 <footer>
+    <div>
+    <div>
+    <p class="Subrayada">Nous trouver</p>
+    <p>46 Rue René Clair <br> 75018 Paris</p>
+    </div>
+    <div>
+    <p class="Subrayada">Téléphone : </p>
+    <p>01 75 43 42 42</p>
+    </div>
+    </div>
+    <div>
+        <p>Ouvert de 11h00 à 14h30&nbsp;</p>
+        <p>et de 19h00 à 22h00</p>
+    </div>
+
+    <iframe id="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2557.412192495619!2d2.3521113516493086!3d48.89371417918934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e622e7c23f5%3A0xe37c6138d8c29e74!2s46+Rue+Ren%C3%A9+Clair%2C+75018+Paris!5e0!3m2!1sfr!2sfr!4v1564406403154!5m2!1sfr!2sfr" width="600" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+
+
+
+
+
+
     <ul class="link-list">
         <li><img src="<?= $wwwUrl ?>/images/payment/visa.png" alt="Visa"></li>
         <li><img src="<?= $wwwUrl ?>/images/payment/mastercard.png" alt="MasterCard"></li>
         <li><img src="<?= $wwwUrl ?>/images/payment/paypal.png" alt="PayPal"></li>
     </ul>
-    <small>Réalisé avec <i class="fa fa-heart"></i>&nbsp; par les élèves de la 3W Academy</small>
+    <p  style="text-align: center;">Réalisé avec <i class="fa fa-heart"></i>&nbsp; par les élèves de la 3W Academy</p>
 </footer>
 
 <!-- Code principal JavaScript de l'application -->
