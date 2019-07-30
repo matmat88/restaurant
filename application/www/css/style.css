@@ -98,15 +98,26 @@ footer>div div {
 }
 .choix {
     text-align: center;
-    border: 2px dashed rgb(138, 3, 3);
     padding: 20px;
     margin: 40px;
     margin-top: 80px;
 }
 .choix h2 {
-    border-bottom: 1px dashed rgb(121, 5, 5);
     padding-bottom: 15px;
 
+}
+.red {
+    border: 2px dashed rgb(138, 3, 3);
+}
+.red h2 {
+border-bottom: 1px dashed rgb(138, 3, 3);
+
+}
+.green {
+    border: 2px dashed rgb(14, 97, 7);
+}
+.green h2 {
+border-bottom: 1px dashed rgb(14, 97, 7);
 }
 
 
