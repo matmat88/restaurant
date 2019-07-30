@@ -1,6 +1,6 @@
 <?php
 
-class IngredientController
+class AboutController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
