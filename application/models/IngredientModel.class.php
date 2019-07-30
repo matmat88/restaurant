@@ -1,5 +1,5 @@
 <?php
-class Ingredient {
+class IngredientModel {
 
 
 }
