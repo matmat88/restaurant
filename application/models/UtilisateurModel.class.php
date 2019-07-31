@@ -1,9 +1,9 @@
 <?php 
 final class UtilisateurModel {
- const UTILISATEUR = 
-    "SELECT `login`,`motDePasse` 
-    FROM `utilisateur` 
-    WHERE `login` = :login AND `motDePasse` = :password";
+    const UTILISATEUR = 
+        "SELECT `id`, `login`,`motDePasse`,`firstName`,`lastName`,`mail`,`role`
+         FROM `utilisateur` 
+         WHERE `login` = :login";
 
     private $db;
 
@@ -12,13 +12,12 @@ final class UtilisateurModel {
     }
 
 
-    function findUserByLogin (string $login, string $password)
+    function findUserByLogin (string $login)
     {
-        $query= $this->db->prepare(self::UTILISATEUR);
-        $error = $query->execute(['login' => $login, 'password' => $password]);
-        $result = $query -> fetch();
-
-        return $user;
+        $parameters['login']= $login;
+ 
+        $query= $this->db->queryOne(self::UTILISATEUR, $parameters);
+        return $query;
     }
 
 

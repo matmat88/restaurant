@@ -43,7 +43,11 @@
 
 
     <a href="#">Mon panier</a> 
+    <?php if (!isset($_SESSION['user'])) : ?>
     <a href="<?= $requestUrl ?>/utilisateur">S'identifier</a>
+    <?php else : ?>
+    <a href="<?= $requestUrl ?>/utilisateur">Déconnexion (<?= $_SESSION['user']['FirstName'] ?>)</a>
+    <?php endif ?>
 </nav>
 </header>
 
