@@ -4,12 +4,21 @@ class MacommandeController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-    	/*
-    	 * Méthode appelée en cas de requête HTTP GET
-    	 *
-    	 * L'argument $http est un objet permettant de faire des redirections etc.
-    	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
-    	 */
+		$model = new IngredientModel(new Database());
+
+		$bases = $model->findByType('BASE');
+		$proteines = $model->findByType('PROTEINE');
+		$supplements = $model->findByType('SUPPLEMENT');
+
+        $formules = $model->findFormule();
+        // var_dump($formules);
+        // die;
+
+        return [
+            'formules' => $formules,
+            'bases' => $bases,
+            'proteines' => $proteines,
+            'supplements' => $supplements,];
     }
 
     public function httpPostMethod(Http $http, array $formFields)

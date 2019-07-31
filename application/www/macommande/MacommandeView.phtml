@@ -1,51 +1,62 @@
 <div id="macommande">
-<h1>Formule au Choix</h1>
-
-<section class="menusimple">
-
-    <h2>Formule Pitaya</h2>
-
-    <h3>Confectionnez votre plat</h3>
-
-            <h4>La base...</h4>
-                <div>
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/rice.jpg">Riz</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/quinoa.jpg">Quinoa</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/nouilles.jpg">Pâtes</a>
-                </div>
-            <h4>1 protéine...</h4>
-            <div>
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/boeuf.jpg">Boeuf</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/poulet.jpg">Poulet</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/gambas.jpeg">Crevettes</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/toffu.webp">Toffu</a>
-                </div>
-            <h4>4 toppings...</h4>
-            <div>
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/ciboulette.jpeg">Ciboulette thaï</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/menthe.jpg">Menthe</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/coriande.jpeg">Coriande</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/basilic.jpeg">Basilic thaï</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/citron.jpeg">Citron vert</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/rice.jpg">Cacahuètes</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/oignon.jpg">Oignon frit</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/poussesdesoja.jpg">Pousse de soja</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/salade.jpg">Salade</a>
-
-                <a href="#"><img class="imgcommande" src="<?= $wwwUrl ?>/images/img/algue.jpg">Algues</a>
-                </div>
+        <article>
+            <h1>Formule au Choix</h1>
+            <?php
+            foreach($formules as $formule){
+            echo `<input id="formule<?= $formule[$id] ?>" name="formule" type="radio" value=""/>
+            <label for="formule<?= $formule[$id] ?>"><?= $formule[$name] ?></label>`;};
+            ?>
+        </article>
+        <section>
+            <h3>Confectionnez votre plat</h3>
+                <article>
+                    <h4>La base...</h4>
+                    <?php
+                        foreach($bases as $base){
+                        echo 
+                        `<div>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/img/<?= $base[$idMedia]?>.jpg" />
+                                <figcaption>
+                                    <input id="base-<?= $base[$id]?>" name="base" type="radio" value=""/>
+                                    <label for="base-<?= $base[$id]?>"><?= $base[$name] ?></label>
+                                </figcaption>
+                            </figure>
+                        </div>`;}
+                        ?>
+                </article>
+                <article>
+                    <h4>1 protéine...</h4>
+                    <?php
+                        foreach($proteines as $proteine){
+                        echo 
+                        `<div>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/img/<?=$proteine[$Media]?>.jpg" />
+                                <figcaption>
+                                    <input id="proteine-<?= $proteine[$id] ?>" name="proteine" type="radio" value=""/>
+                                    <label for=""><?= $proteine[$id]?><?= $proteine[$name] ?></label>
+                                </figcaption>
+                            </figure>
+                        </div>`;}
+                    ?>
+                </article>
+                <article>
+                    <h4>4 toppings...</h4>
+                    <?php
+                        foreach($supplements as $supplement){
+                        echo 
+                        `<div>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/img/<?=$proteine[$Media]?>.jpg" />
+                                <figcaption>
+                                    <input id="topping-<?= $proteine[$id] ?>" name="supplement[]" type="checkbox" value=""/>
+                                    <label for="topping-<?= $proteine[$id] ?>"><?= $proteine[$name] ?></label>
+                                </figcaption>
+                            </figure>
+                        </div>`;}
+                    ?>
+                </article>
         </section>
- </div>
+        
+</div>
