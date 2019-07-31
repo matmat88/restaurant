@@ -15,7 +15,23 @@ class UtilisateurController
     public function httpPostMethod(Http $http, array $formFields)
     {
 		$model = new UtilisateurModel (new Database());
-		$user = $model -> findUserByLogin ($formFields['login'], $formFields['password']);
-		
+		$user = $model -> findUserByLogin ($formFields['login']);
+
+			if (is_null($user['id'])) {
+				$http->RedirectTo('/utilisateur');
+			} else {
+				if (password_verify($formFields['password'], $user['motDePasse'])) {
+					$session = new UserSession();
+					$session->create($user['id'], $user['firstName'], $user['lastName'], $user['mail'], $user['role']);
+					if ($user['role']=='client') {
+						$http->RedirectTo('/macommande');
+					}
+					else {
+						$http->RedirectTo('/admin');
+					}
+				} else {
+					$http->RedirectTo('/utilisateur');	
+				}
+			}
     }
 }

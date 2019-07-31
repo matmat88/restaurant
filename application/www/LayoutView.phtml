@@ -41,7 +41,11 @@
     <a href="<?= $requestUrl ?>/menu">Formules Menu</a>
     <a href="<?= $requestUrl ?>/macommande">Ma Commande</a>
     <a href="#">Mon panier</a> 
+    <?php if (!isset($_SESSION['user'])) : ?>
     <a href="<?= $requestUrl ?>/utilisateur">S'identifier</a>
+    <?php else : ?>
+    <a id="deconnexion" href="<?= $requestUrl ?>/logout">Déconnexion (<?= $_SESSION['user']['FirstName'] ?>)</a>
+    <?php endif ?>
 </nav>
 </header>
 
