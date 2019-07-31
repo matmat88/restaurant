@@ -14,7 +14,7 @@ class UtilisateurController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-		$model = new UtilisateurModel ();
+		$model = new UtilisateurModel (new Database());
 		$user = $model -> findUserByLogin ($formFields['login'], $formFields['password']);
 		
     }

@@ -119,6 +119,30 @@ border-bottom: 1px dashed rgb(138, 3, 3);
 .green h2 {
 border-bottom: 1px dashed rgb(14, 97, 7);
 }
+form {
+    width: 25%;
+    margin: auto;
+    text-align: end;
+}
+.formulaire {
+    margin-top: 40px;
+}
+#merci {
+    text-align: center;
+}
+#macommande a img {
+    display: block;
+    margin: 20px;
+}
+.menusimple div {
+    display: flex;
+}
+.menusimple a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
 
 
 
