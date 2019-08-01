@@ -3,6 +3,8 @@
 }
 
 body {
+    width: 95%;
+    margin: auto;
     background-color: rgb(54, 53, 53);
     background-image: url(../images/background.png);
 }
