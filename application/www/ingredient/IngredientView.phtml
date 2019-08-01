@@ -1,6 +1,6 @@
 <h1>Interface Ingredient</h1>
 <div class="formulaire">
-    <form action="<?= $requestUrl?>/ingredient" method="post">
+    <form action="<?= $requestUrl?>/ingredient" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend>Ajouter un ingrédient</legend>
             <div>
@@ -9,7 +9,7 @@
             </div>
             <div>
                 <label for="type">type</label>
-                <select  name="type" id="type">
+                <select id="type" name="type">
                     <option value="BASE">BASE</option>
                     <option value="PROTEINE">PROTEINE</option>
                     <option value="SUPPLEMENT">SUPPLEMENT</option>
@@ -22,6 +22,40 @@
             <div>
                 <label for="name">nom de l'image</label>
                 <input type="text" name="name" id="name">
+                <input type="file" name="picture" id="picture" />
+            </div>
+            <div>
+                <button>Valider</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<h1>Interface Dessert</h1>
+<div class="formulaire">
+    <form action="<?= $requestUrl?>/ingredient" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Ajouter un ingrédient</legend>
+            <div>
+                <label for="name">name</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="type">type</label>
+                <select id="type" name="type">
+                    <option value="BASE">BASE</option>
+                    <option value="PROTEINE">PROTEINE</option>
+                    <option value="SUPPLEMENT">SUPPLEMENT</option>
+                </select>
+            </div>
+            <div>
+                <label for="prix">prix</label>
+                <input type="text" name="prix" id="prix">
+            </div>
+            <div>
+                <label for="name">nom de l'image</label>
+                <input type="text" name="name" id="name">
+                <input type="file" name="picture" id="picture" />
             </div>
             <div>
                 <button>Valider</button>
