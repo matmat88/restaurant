@@ -1,54 +1,48 @@
 <div id="macommande">
         <article>
             <h1>Formule au Choix</h1>
-            <?php
-            foreach($formules as $formule){
-            echo `<input id="formule<?= $formule[$id] ?>" name="formule" type="radio" value=""/>
-            <label for="formule<?= $formule[$id] ?>"><?= $formule[$name] ?></label>`;};
-            ?>
+            <?php foreach($formules as $formule):?>
+            <input id="formule<?= $formule[$id] ?>" name="formule" type="radio" value=""/>
+            <label for="formule<?= $formule[$id] ?>"><?= $formule[$name] ?></label>
+            <?php endforeach ?>            
         </article>
         <section>
             <h3>Confectionnez votre plat</h3>
                 <article>
                     <h4>La base...</h4>
-                    <?php
-                        foreach($bases as $base){
-                        echo 
-                        `<div>
+                    <?php foreach($bases as $base) : ?>
+                        <div>
                             <figure>
-                                <img src="<?= $wwwUrl ?>/images/img/<?= $base[$idMedia]?>.jpg" />
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?= $base['mName']?>"/>
                                 <figcaption>
-                                    <input id="base-<?= $base[$id]?>" name="base" type="radio" value=""/>
-                                    <label for="base-<?= $base[$id]?>"><?= $base[$name] ?></label>
+                                    <input id="base-<?= $base['id']?>" name="base" type="radio" value=""/>
+                                    <label for="base-<?= $base['id']?>"><?= $base['iName'] ?></label>
                                 </figcaption>
                             </figure>
-                        </div>`;}
-                        ?>
+                        </div>
+                    <?php endforeach ?>
                 </article>
                 <article>
                     <h4>1 protéine...</h4>
-                    <?php
-                        foreach($proteines as $proteine){
-                        echo 
-                        `<div>
+                    <?php foreach($proteines as $proteine):?>
+                        <div>
                             <figure>
-                                <img src="<?= $wwwUrl ?>/images/img/<?=$proteine[$Media]?>.jpg" />
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$proteine[$Media]?>.jpg" />
                                 <figcaption>
                                     <input id="proteine-<?= $proteine[$id] ?>" name="proteine" type="radio" value=""/>
                                     <label for=""><?= $proteine[$id]?><?= $proteine[$name] ?></label>
                                 </figcaption>
                             </figure>
-                        </div>`;}
-                    ?>
+                        </div>
+                    <?php endforeach ?>
                 </article>
                 <article>
                     <h4>4 toppings...</h4>
-                    <?php
-                        foreach($supplements as $supplement){
-                        echo 
+                    <?php foreach($supplements as $supplement):
+                        
                         `<div>
                             <figure>
-                                <img src="<?= $wwwUrl ?>/images/img/<?=$proteine[$Media]?>.jpg" />
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$proteine[$Media]?>.jpg" />
                                 <figcaption>
                                     <input id="topping-<?= $proteine[$id] ?>" name="supplement[]" type="checkbox" value=""/>
                                     <label for="topping-<?= $proteine[$id] ?>"><?= $proteine[$name] ?></label>
