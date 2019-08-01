@@ -30,6 +30,20 @@ body {
     font-family: 'Montserrat Subrayada', sans-serif;
 }
 
+.admin-interface {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+}
+.admin-interface a {
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+}
+.admin-interface a:hover {
+    font-weight: bold;
+}
+
 .user-interface {
     margin-top: 80px;
     display: flex;

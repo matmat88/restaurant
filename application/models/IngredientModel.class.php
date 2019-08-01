@@ -19,4 +19,15 @@ final class IngredientModel {
         return $result;
     }
 
+
+    function addIngredient (string $name, string $prix, string $type) {
+        $register =
+        "INSERT INTO `ingredient`(`name`, `prix`,`type`)  
+        VALUES (:name, :prix, :type)";
+        $parameters['name']=$name;
+        $parameters['prix']=$prix;
+        $parameters['type']= $type;
+        $key= $this->db->executeSql($register, $parameters);
+        return $key;
+    }
 }
