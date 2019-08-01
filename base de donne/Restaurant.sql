@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2.1
+-- http://www.phpmyadmin.net
 --
--- Hôte : localhost
--- Généré le :  jeu. 01 août 2019 à 12:43
--- Version du serveur :  5.7.27-0ubuntu0.18.04.1
--- Version de PHP :  7.2.19-0ubuntu0.18.04.1
+-- Client :  localhost
+-- Généré le :  Jeu 01 Août 2019 à 15:27
+-- Version du serveur :  5.7.27-0ubuntu0.16.04.1
+-- Version de PHP :  7.0.33-0ubuntu0.16.04.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -56,7 +54,7 @@ CREATE TABLE `commandeElement` (
 
 CREATE TABLE `element` (
   `id` int(11) NOT NULL,
-  `type` enum('composition','boisson','entree') NOT NULL,
+  `type` enum('composition','boisson','dessert') NOT NULL,
   `name` varchar(64) NOT NULL,
   `prix` float NOT NULL,
   `stock` float NOT NULL,
@@ -83,7 +81,7 @@ CREATE TABLE `elementIngredient` (
 CREATE TABLE `formule` (
   `id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
-  `entree` int(11) NOT NULL,
+  `dessert` int(11) NOT NULL,
   `composition` int(11) NOT NULL,
   `boisson` int(11) NOT NULL,
   `prix` float NOT NULL,
@@ -101,9 +99,20 @@ CREATE TABLE `ingredient` (
   `name` varchar(64) NOT NULL,
   `prix` float NOT NULL,
   `type` enum('BASE','PROTEINE','SUPPLEMENT') NOT NULL,
-  `stock` float NOT NULL,
-  `idMedia` int(11) NOT NULL
+  `stock` float NOT NULL DEFAULT '0',
+  `idMedia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `ingredient`
+--
+
+INSERT INTO `ingredient` (`id`, `name`, `prix`, `type`, `stock`, `idMedia`) VALUES
+(1, 'riz', 5, 'BASE', 0, NULL),
+(2, 'riz', 5, 'BASE', 0, NULL),
+(3, 'riz', 5, 'BASE', 0, NULL),
+(4, 'riz', 5, 'BASE', 0, NULL),
+(5, 'riz', 5, 'BASE', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -177,14 +186,16 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `utilisateur`
+-- Contenu de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id`, `firstName`, `login`, `motDePasse`, `tel`, `mail`, `dateInscription`, `lastName`, `adress`, `town`, `role`, `statut`) VALUES
-(1, 'mathile', 'mat', '$2y$10$2.X7A8ZdwexjKrdsBLmvau69F3Q/EZfSi9PpJicCg1b2flmCVmzDm', NULL, 'mat', '2019-08-01 10:31:39', 'tram', NULL, NULL, 'admin', NULL);
+(1, 'mathilde', 'mat', '$2y$10$2.X7A8ZdwexjKrdsBLmvau69F3Q/EZfSi9PpJicCg1b2flmCVmzDm', NULL, 'mat', '2019-08-01 10:31:39', 'tram', NULL, NULL, 'admin', NULL),
+(2, 'toto', 'toto', '$2y$10$ZLlVyZR2u1rc533TWo1Ro.6JicqilzlKXCpbP4y1Cw3z5MKlBB68q', NULL, 'toto', '2019-08-01 14:25:43', 'toto', NULL, NULL, 'admin', NULL),
+(3, 'tata', 'tata', '$2y$10$SiOddQGMsrg5p2VYLzYGjukGFBzWNJZRTWue.qBNa2/YfTp27wDjm', NULL, 'tata', '2019-08-01 14:37:51', 'tata', NULL, NULL, 'client', NULL);
 
 --
--- Index pour les tables déchargées
+-- Index pour les tables exportées
 --
 
 --
@@ -265,7 +276,7 @@ ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
@@ -273,51 +284,43 @@ ALTER TABLE `utilisateur`
 --
 ALTER TABLE `commande`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `element`
 --
 ALTER TABLE `element`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `formule`
 --
 ALTER TABLE `formule`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `ingredient`
 --
 ALTER TABLE `ingredient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `reservation`
 --
 ALTER TABLE `reservation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `tables`
 --
 ALTER TABLE `tables`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- Contraintes pour les tables déchargées
+-- Contraintes pour les tables exportées
 --
 
 --
@@ -364,7 +367,6 @@ ALTER TABLE `reservation`
 ALTER TABLE `tableReservation`
   ADD CONSTRAINT `tableReservation_ibfk_1` FOREIGN KEY (`id_reservation`) REFERENCES `reservation` (`id`),
   ADD CONSTRAINT `tableReservation_ibfk_2` FOREIGN KEY (`id_table`) REFERENCES `tables` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
