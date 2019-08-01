@@ -1,6 +1,6 @@
 <h1>Interface Ingredient</h1>
 <div class="formulaire">
-    <form action="<?= $requestUrl?>/register" method="post">
+    <form action="<?= $requestUrl?>/ingredient" method="post">
         <fieldset>
             <legend>Ajouter un ingrédient</legend>
             <div>
@@ -9,7 +9,7 @@
             </div>
             <div>
                 <label for="type">type</label>
-                <select id="type">
+                <select  name="type" id="type">
                     <option value="BASE">BASE</option>
                     <option value="PROTEINE">PROTEINE</option>
                     <option value="SUPPLEMENT">SUPPLEMENT</option>
