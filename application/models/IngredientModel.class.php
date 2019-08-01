@@ -30,4 +30,16 @@ final class IngredientModel {
         $key= $this->db->executeSql($register, $parameters);
         return $key;
     }
+
+    function addDessert (string $name, string $prix, string $type) {
+        $register =
+        "INSERT INTO `element`(`name`, `prix`,`type`)  
+        VALUES (:name, :prix, :type)";
+        $parameters['name']=$name;
+        $parameters['prix']=$prix;
+        $parameters['type']= $type;
+        $key= $this->db->executeSql($register, $parameters);
+        return $key;
+    }
 }
+
