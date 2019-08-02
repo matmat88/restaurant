@@ -1,11 +1,5 @@
 <div id="macommande">
-        <article>
-            <h1>Formule au Choix</h1>
-            <?php foreach($formules as $formule):?>
-            <input id="formule<?= $formule[$id] ?>" name="formule" type="radio" value=""/>
-            <label for="formule<?= $formule[$id] ?>"><?= $formule[$name] ?></label>
-            <?php endforeach ?>            
-        </article>
+       
         <section>
             <h3>Confectionnez votre plat</h3>
                 <article>
@@ -27,10 +21,10 @@
                     <?php foreach($proteines as $proteine):?>
                         <div>
                             <figure>
-                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$proteine['mName']?>.jpg" />
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$proteine['mName']?>" />
                                 <figcaption>
                                     <input id="proteine-<?= $proteine['id'] ?>" name="proteine" type="radio" value=""/>
-                                    <label for=""><?= $proteine['id']?><?= $proteine['iName'] ?></label>
+                                    <label for="proteine-<?= $proteine['id']?>"><?= $proteine['iName'] ?></label>
                                 </figcaption>
                             </figure>
                         </div>
@@ -41,7 +35,7 @@
                     <?php foreach($supplements as $supplement):?>
                         <div>
                             <figure>
-                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$supplement['mName']?>.jpg" />
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$supplement['mName']?>" />
                                 <figcaption>
                                     <input id="topping-<?= $supplement['id'] ?>" name="supplement[]" type="checkbox" value=""/>
                                     <label for="topping-<?= $supplement['id'] ?>"><?= $supplement['iName'] ?></label>
@@ -50,6 +44,35 @@
                         </div>
                     <?php endforeach ?>
                 </article>
+                <article>
+                    <h4>Les desserts</h4>
+                    <?php foreach($desserts as $dessert):?>
+                        <div>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$dessert['mName']?>" />
+                                <figcaption>
+                                    <input id="dessert-<?= $dessert['id'] ?>" name="dessert[]" type="radio" value=""/>
+                                    <label for="dessert-<?= $dessert['id'] ?>"><?= $dessert['iName'] ?></label>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    <?php endforeach ?>
+                </article>
+                <h4>Les boissons</h4>
+                    <?php foreach($boissons as $boisson):?>
+                        <div>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$boisson['mName']?>" />
+                                <figcaption>
+                                    <input id="boisson-<?= $boisson['id'] ?>" name="boisson[]" type="radio" value=""/>
+                                    <label for="boisson-<?= $boisson['id'] ?>"><?= $boisson['iName'] ?></label>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    <?php endforeach ?>
+                </article>
+
+                
         </section>
-        
+
 </div>

@@ -64,7 +64,11 @@ CREATE TABLE `element` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+<<<<<<< HEAD
 -- Déchargement des données de la table `element`
+=======
+-- Contenu de la table `element`
+>>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 
 INSERT INTO `element` (`id`, `type`, `name`, `prix`, `stock`, `idMedia`) VALUES
@@ -156,7 +160,11 @@ CREATE TABLE `media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+<<<<<<< HEAD
 -- Déchargement des données de la table `media`
+=======
+-- Contenu de la table `media`
+>>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 
 INSERT INTO `media` (`id`, `name`, `type`) VALUES
@@ -349,7 +357,10 @@ ALTER TABLE `commande`
 --
 ALTER TABLE `element`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+<<<<<<< HEAD
 
+=======
+>>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 -- AUTO_INCREMENT pour la table `formule`
 --
@@ -361,13 +372,19 @@ ALTER TABLE `formule`
 --
 ALTER TABLE `ingredient`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+<<<<<<< HEAD
 
+=======
+>>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+<<<<<<< HEAD
 
+=======
+>>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 -- AUTO_INCREMENT pour la table `reservation`
 --
@@ -385,7 +402,10 @@ ALTER TABLE `tables`
 --
 ALTER TABLE `utilisateur`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+<<<<<<< HEAD
 
+=======
+>>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 -- Contraintes pour les tables déchargées
 --

@@ -12,8 +12,6 @@ class IngredientController
         $model = new IngredientModel(new Database());
         $modelMedia = new MediaModel(new Database());
         
-        // var_dump($_FILES); die;
-
         if ($_FILES["picture"]["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $_FILES["picture"]["tmp_name"];
             // basename() peut empêcher les attaques "filesystem traversal";

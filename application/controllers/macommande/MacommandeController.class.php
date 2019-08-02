@@ -8,12 +8,16 @@ class MacommandeController
 
 		$bases = $model->findByType('BASE');
 		$proteines = $model->findByType('PROTEINE');
-		$supplements = $model->findByType('SUPPLEMENT');
+        $supplements = $model->findByType('SUPPLEMENT');
+        $desserts = $model->findElement('dessert');
+        $boissons = $model->findElement('boisson');
 
         return [
             'bases' => $bases,
             'proteines' => $proteines,
-            'supplements' => $supplements,];
+            'supplements' => $supplements,
+            'desserts' => $desserts,
+            'boissons' => $boissons];
     }
 
     public function httpPostMethod(Http $http, array $formFields)
