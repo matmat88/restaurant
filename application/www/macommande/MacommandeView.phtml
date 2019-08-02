@@ -1,11 +1,5 @@
 <div id="macommande">
-        <article>
-            <h1>Formule au Choix</h1>
-            <?php foreach($formules as $formule):?>
-            <input id="formule<?= $formule[$id] ?>" name="formule" type="radio" value=""/>
-            <label for="formule<?= $formule[$id] ?>"><?= $formule[$name] ?></label>
-            <?php endforeach ?>            
-        </article>
+       
         <section>
             <h3>Confectionnez votre plat</h3>
                 <article>
@@ -27,10 +21,10 @@
                     <?php foreach($proteines as $proteine):?>
                         <div>
                             <figure>
-                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$proteine[$Media]?>.jpg" />
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?= $proteine['mName']?>" />
                                 <figcaption>
-                                    <input id="proteine-<?= $proteine[$id] ?>" name="proteine" type="radio" value=""/>
-                                    <label for=""><?= $proteine[$id]?><?= $proteine[$name] ?></label>
+                                    <input id="proteine-<?= $proteine['id'] ?>" name="proteine" type="radio" value=""/>
+                                    <label for="proteine-<?= $proteine['id']?>"><?= $proteine['iName'] ?></label>
                                 </figcaption>
                             </figure>
                         </div>
@@ -38,19 +32,19 @@
                 </article>
                 <article>
                     <h4>4 toppings...</h4>
-                    <?php foreach($supplements as $supplement):
+                    <?php foreach($supplements as $supplement):?>
                         
                         `<div>
                             <figure>
-                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$proteine[$Media]?>.jpg" />
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$supplement['mName']?>" />
                                 <figcaption>
-                                    <input id="topping-<?= $proteine[$id] ?>" name="supplement[]" type="checkbox" value=""/>
-                                    <label for="topping-<?= $proteine[$id] ?>"><?= $proteine[$name] ?></label>
+                                    <input id="topping-<?= $supplement['id'] ?>" name="supplement" type="radio" value=""/>
+                                    <label for="topping-<?= $supplement['id'] ?>"><?= $supplement['iName'] ?></label>
                                 </figcaption>
                             </figure>
-                        </div>`;}
-                    ?>
+                        </div>`
+                        <?php endforeach ?>
                 </article>
         </section>
-        
+
 </div>

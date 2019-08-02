@@ -23,7 +23,7 @@ public function httpPostMethod(Http $http, array $formFields)
         }
         
         $idMedia = $modelMedia->addMedia($name, $_FILES["picture"]["type"]);
-        $user = $model -> addDessert ($formFields['name'], $formFields['prix'], $formFields['type']);
+        $user = $model -> addDessert ($formFields['name'], $formFields['prix'], $formFields['type'], $idMedia);
 
 
 

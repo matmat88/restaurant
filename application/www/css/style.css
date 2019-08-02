@@ -150,6 +150,10 @@ form {
     display: block;
     margin: 20px;
 }
+#macommande img {
+width: 150px;
+height: 100px;
+}
 .menusimple div {
     display: flex;
 }
