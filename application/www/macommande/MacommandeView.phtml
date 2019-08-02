@@ -21,10 +21,17 @@
                     <?php foreach($proteines as $proteine):?>
                         <div>
                             <figure>
+<<<<<<< HEAD
                                 <img src="<?= $wwwUrl ?>/images/illustrations/<?= $proteine['mName']?>" />
                                 <figcaption>
                                     <input id="proteine-<?= $proteine['id'] ?>" name="proteine" type="radio" value=""/>
                                     <label for="proteine-<?= $proteine['id']?>"><?= $proteine['iName'] ?></label>
+=======
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$proteine['mName']?>.jpg" />
+                                <figcaption>
+                                    <input id="proteine-<?= $proteine['id'] ?>" name="proteine" type="radio" value=""/>
+                                    <label for=""><?= $proteine['id']?><?= $proteine['iName'] ?></label>
+>>>>>>> 67e564a37e5186db25de707e2a3fc738633a13e4
                                 </figcaption>
                             </figure>
                         </div>
@@ -33,6 +40,7 @@
                 <article>
                     <h4>4 toppings...</h4>
                     <?php foreach($supplements as $supplement):?>
+<<<<<<< HEAD
                         
                         `<div>
                             <figure>
@@ -44,6 +52,18 @@
                             </figure>
                         </div>`
                         <?php endforeach ?>
+=======
+                        <div>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$supplement['mName']?>.jpg" />
+                                <figcaption>
+                                    <input id="topping-<?= $supplement['id'] ?>" name="supplement[]" type="checkbox" value=""/>
+                                    <label for="topping-<?= $supplement['id'] ?>"><?= $supplement['iName'] ?></label>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    <?php endforeach ?>
+>>>>>>> 67e564a37e5186db25de707e2a3fc738633a13e4
                 </article>
         </section>
 
