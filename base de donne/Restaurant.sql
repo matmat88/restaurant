@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 01 Août 2019 à 15:27
+-- Généré le :  Ven 02 Août 2019 à 10:20
 -- Version du serveur :  5.7.27-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.33-0ubuntu0.16.04.5
 
@@ -54,12 +54,19 @@ CREATE TABLE `commandeElement` (
 
 CREATE TABLE `element` (
   `id` int(11) NOT NULL,
-  `type` enum('composition','boisson','dessert') NOT NULL,
+  `type` enum('boisson','dessert') NOT NULL,
   `name` varchar(64) NOT NULL,
   `prix` float NOT NULL,
-  `stock` float NOT NULL,
-  `idMedia` int(11) NOT NULL
+  `stock` float NOT NULL DEFAULT '0',
+  `idMedia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `element`
+--
+
+INSERT INTO `element` (`id`, `type`, `name`, `prix`, `stock`, `idMedia`) VALUES
+(8, 'boisson', 'ddddd', 3.5, 0, 7);
 
 -- --------------------------------------------------------
 
@@ -81,11 +88,11 @@ CREATE TABLE `elementIngredient` (
 CREATE TABLE `formule` (
   `id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
-  `dessert` int(11) NOT NULL,
-  `composition` int(11) NOT NULL,
-  `boisson` int(11) NOT NULL,
+  `dessert` int(11) DEFAULT NULL,
+  `composition` int(11) DEFAULT NULL,
+  `boisson` int(11) DEFAULT NULL,
   `prix` float NOT NULL,
-  `publication` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `publication` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -108,11 +115,22 @@ CREATE TABLE `ingredient` (
 --
 
 INSERT INTO `ingredient` (`id`, `name`, `prix`, `type`, `stock`, `idMedia`) VALUES
-(1, 'riz', 5, 'BASE', 0, NULL),
-(2, 'riz', 5, 'BASE', 0, NULL),
-(3, 'riz', 5, 'BASE', 0, NULL),
-(4, 'riz', 5, 'BASE', 0, NULL),
-(5, 'riz', 5, 'BASE', 0, NULL);
+(6, 'riz', 5, 'BASE', 0, 2),
+(7, 'nouilles', 3, 'BASE', 0, 8),
+(8, 'quinoa', 3, 'BASE', 0, 9),
+(9, 'boeuf', 3, 'PROTEINE', 0, 10),
+(10, 'poulet', 3, 'PROTEINE', 0, 11),
+(11, 'crevettes', 3, 'PROTEINE', 0, 12),
+(12, 'tofu', 3, 'PROTEINE', 0, 13),
+(13, 'ciboulette', 3, 'SUPPLEMENT', 0, 14),
+(15, 'menthe', 3, 'SUPPLEMENT', 0, 16),
+(16, 'coriandre', 3, 'SUPPLEMENT', 0, 17),
+(17, 'basilic', 3, 'SUPPLEMENT', 0, 18),
+(18, 'citron vert', 3, 'SUPPLEMENT', 0, 19),
+(19, 'oignons frits', 3, 'SUPPLEMENT', 0, 20),
+(20, 'pousse de soja', 3, 'SUPPLEMENT', 0, 21),
+(21, 'salade', 3, 'SUPPLEMENT', 0, 22),
+(22, 'algues', 3, 'SUPPLEMENT', 0, 23);
 
 -- --------------------------------------------------------
 
@@ -125,6 +143,35 @@ CREATE TABLE `media` (
   `name` varchar(64) NOT NULL,
   `type` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `media`
+--
+
+INSERT INTO `media` (`id`, `name`, `type`) VALUES
+(1, 'chocococo.jpg', 'image/jpeg'),
+(2, 'rice.jpg', 'image/jpeg'),
+(3, 'sorbetlitchi.jpg', 'image/jpeg'),
+(4, 'nouilles.jpg', 'image/jpeg'),
+(5, 'nouilles.jpg', 'image/jpeg'),
+(6, 'moussekala.jpg', 'image/jpeg'),
+(7, 'citron.jpeg', 'image/jpeg'),
+(8, 'nouilles.jpg', 'image/jpeg'),
+(9, 'quinoa.jpg', 'image/jpeg'),
+(10, 'boeuf.jpg', 'image/jpeg'),
+(11, 'poulet.jpg', 'image/jpeg'),
+(12, 'gambas.jpeg', 'image/jpeg'),
+(13, 'toffu.webp', 'image/webp'),
+(14, 'ciboulette.jpeg', 'image/jpeg'),
+(15, 'ciboulette.jpeg', 'image/jpeg'),
+(16, 'menthe.jpg', 'image/jpeg'),
+(17, 'coriande.jpeg', 'image/jpeg'),
+(18, 'basilic.jpeg', 'image/jpeg'),
+(19, 'citron.jpeg', 'image/jpeg'),
+(20, 'oignon.jpg', 'image/jpeg'),
+(21, 'poussesdesoja.jpg', 'image/jpeg'),
+(22, 'salade.jpg', 'image/jpeg'),
+(23, 'algue.jpg', 'image/jpeg');
 
 -- --------------------------------------------------------
 
@@ -192,7 +239,8 @@ CREATE TABLE `utilisateur` (
 INSERT INTO `utilisateur` (`id`, `firstName`, `login`, `motDePasse`, `tel`, `mail`, `dateInscription`, `lastName`, `adress`, `town`, `role`, `statut`) VALUES
 (1, 'mathilde', 'mat', '$2y$10$2.X7A8ZdwexjKrdsBLmvau69F3Q/EZfSi9PpJicCg1b2flmCVmzDm', NULL, 'mat', '2019-08-01 10:31:39', 'tram', NULL, NULL, 'admin', NULL),
 (2, 'toto', 'toto', '$2y$10$ZLlVyZR2u1rc533TWo1Ro.6JicqilzlKXCpbP4y1Cw3z5MKlBB68q', NULL, 'toto', '2019-08-01 14:25:43', 'toto', NULL, NULL, 'admin', NULL),
-(3, 'tata', 'tata', '$2y$10$SiOddQGMsrg5p2VYLzYGjukGFBzWNJZRTWue.qBNa2/YfTp27wDjm', NULL, 'tata', '2019-08-01 14:37:51', 'tata', NULL, NULL, 'client', NULL);
+(3, 'tata', 'tata', '$2y$10$SiOddQGMsrg5p2VYLzYGjukGFBzWNJZRTWue.qBNa2/YfTp27wDjm', NULL, 'tata', '2019-08-01 14:37:51', 'tata', NULL, NULL, 'client', NULL),
+(4, 'tata', 'tata', '$2y$10$ElGvJ0GxB6TWlFu2OMIK8eBCbt8iQ3xBroQnkFktE.8W2VnQ4kviq', NULL, 'tata', '2019-08-01 16:06:15', 'tata', NULL, NULL, 'client', NULL);
 
 --
 -- Index pour les tables exportées
@@ -288,7 +336,7 @@ ALTER TABLE `commande`
 -- AUTO_INCREMENT pour la table `element`
 --
 ALTER TABLE `element`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pour la table `formule`
 --
@@ -298,12 +346,12 @@ ALTER TABLE `formule`
 -- AUTO_INCREMENT pour la table `ingredient`
 --
 ALTER TABLE `ingredient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT pour la table `reservation`
 --
@@ -318,7 +366,7 @@ ALTER TABLE `tables`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Contraintes pour les tables exportées
 --

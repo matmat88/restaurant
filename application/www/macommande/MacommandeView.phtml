@@ -21,17 +21,10 @@
                     <?php foreach($proteines as $proteine):?>
                         <div>
                             <figure>
-<<<<<<< HEAD
-                                <img src="<?= $wwwUrl ?>/images/illustrations/<?= $proteine['mName']?>" />
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$proteine['mName']?>" />
                                 <figcaption>
                                     <input id="proteine-<?= $proteine['id'] ?>" name="proteine" type="radio" value=""/>
                                     <label for="proteine-<?= $proteine['id']?>"><?= $proteine['iName'] ?></label>
-=======
-                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$proteine['mName']?>.jpg" />
-                                <figcaption>
-                                    <input id="proteine-<?= $proteine['id'] ?>" name="proteine" type="radio" value=""/>
-                                    <label for=""><?= $proteine['id']?><?= $proteine['iName'] ?></label>
->>>>>>> 67e564a37e5186db25de707e2a3fc738633a13e4
                                 </figcaption>
                             </figure>
                         </div>
@@ -40,22 +33,9 @@
                 <article>
                     <h4>4 toppings...</h4>
                     <?php foreach($supplements as $supplement):?>
-<<<<<<< HEAD
-                        
-                        `<div>
-                            <figure>
-                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$supplement['mName']?>" />
-                                <figcaption>
-                                    <input id="topping-<?= $supplement['id'] ?>" name="supplement" type="radio" value=""/>
-                                    <label for="topping-<?= $supplement['id'] ?>"><?= $supplement['iName'] ?></label>
-                                </figcaption>
-                            </figure>
-                        </div>`
-                        <?php endforeach ?>
-=======
                         <div>
                             <figure>
-                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$supplement['mName']?>.jpg" />
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$supplement['mName']?>" />
                                 <figcaption>
                                     <input id="topping-<?= $supplement['id'] ?>" name="supplement[]" type="checkbox" value=""/>
                                     <label for="topping-<?= $supplement['id'] ?>"><?= $supplement['iName'] ?></label>
@@ -63,8 +43,36 @@
                             </figure>
                         </div>
                     <?php endforeach ?>
->>>>>>> 67e564a37e5186db25de707e2a3fc738633a13e4
                 </article>
+                <article>
+                    <h4>Les desserts</h4>
+                    <?php foreach($desserts as $dessert):?>
+                        <div>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$dessert['mName']?>" />
+                                <figcaption>
+                                    <input id="dessert-<?= $dessert['id'] ?>" name="dessert[]" type="radio" value=""/>
+                                    <label for="dessert-<?= $dessert['id'] ?>"><?= $dessert['iName'] ?></label>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    <?php endforeach ?>
+                </article>
+                <h4>Les boissons</h4>
+                    <?php foreach($boissons as $boisson):?>
+                        <div>
+                            <figure>
+                                <img src="<?= $wwwUrl ?>/images/illustrations/<?=$boisson['mName']?>" />
+                                <figcaption>
+                                    <input id="boisson-<?= $boisson['id'] ?>" name="boisson[]" type="radio" value=""/>
+                                    <label for="boisson-<?= $boisson['id'] ?>"><?= $boisson['iName'] ?></label>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    <?php endforeach ?>
+                </article>
+
+                
         </section>
 
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-class HomeController
+class HomeController implements ControllerInterface
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {

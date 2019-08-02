@@ -47,5 +47,15 @@ final class IngredientModel {
         $key= $this->db->executeSql($register, $parameters);
         return $key;
     }
+
+    function findElement (string $type){
+        $queryByType = 
+            "SELECT E.`id` AS id, E.`name` AS iName, E.`type` AS type, M.`name`AS mName
+             FROM `element` AS E
+             INNER JOIN `media` AS M ON E.idMedia = M.`id`
+             WHERE E.`type`= ? ";
+        $result = $this->db->query($queryByType, [$type]);
+        return $result;
+}
 }
 
