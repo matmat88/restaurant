@@ -1,19 +1,17 @@
 <?php
 
-class MacommandeController
+class FormuleselectController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
-		$model = new IngredientModel(new Database());
-
-		$bases = $model->findByType('BASE');
-		$proteines = $model->findByType('PROTEINE');
-		$supplements = $model->findByType('SUPPLEMENT');
+		$model = new FormuleModel(new Database());
+        $formules = $model->findFormule();
+        // var_dump($formules);
+        // die;
 
         return [
-            'bases' => $bases,
-            'proteines' => $proteines,
-            'supplements' => $supplements,];
+            'formules' => $formules,
+            ];
     }
 
     public function httpPostMethod(Http $http, array $formFields)

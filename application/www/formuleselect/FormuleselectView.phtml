@@ -1,0 +1,9 @@
+<div id="formuleSelect">
+        <article>
+            <h1>Formule au Choix</h1>
+            <?php foreach($formules as $formule):?>
+            <input id="formule<?= $formule['id'] ?>" name="formule" type="radio" value=""/>
+            <label for="formule<?= $formule['id'] ?>"><?= $formule['name'] ?></label>
+            <?php endforeach ?>            
+        </article>
+</div>
