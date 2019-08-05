@@ -2,8 +2,14 @@
         <article>
             <h1>Formule au Choix</h1>
             <?php foreach($formules as $formule):?>
-            <input id="formule<?= $formule['id'] ?>" name="formule" type="radio" value=""/>
-            <label for="formule<?= $formule['id'] ?>"><?= $formule['name'] ?></label>
+            <div id="menu">
+                <a href="<?= $requestUrl ?>/macommande">
+                    <div>
+                        <h2>Formule <?= $formule['name'] ?></h2>
+                        <p>Choisissez votre plat</p>
+                    </div>
+                </a>
+            </div>
             <?php endforeach ?>            
         </article>
 </div>
