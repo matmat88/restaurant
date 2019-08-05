@@ -39,7 +39,7 @@
     <!-- Interface utilisateur -->
     <?php if (isset($_SESSION['user']) && $_SESSION['user']['Role'] === 'admin') : ?>
         <nav class="admin-interface">
-            <a href="<?= $requestUrl ?>/formule">Ajouter une formule</a>
+            <a href="<?= $requestUrl ?>/addformule">Ajouter une formule</a>
             <a href="<?= $requestUrl ?>/ingredient">Ajouter des ingrédients</a>
             <a href="<?= $requestUrl ?>/suivreCommande">Suivre les commandes</a>
             <?php if (!isset($_SESSION['user'])) : ?>

@@ -13,5 +13,18 @@ final class FormuleModel {
         return $result;
     }
 
+
+    function addFormule (string $name, string $dessert, string $boisson) {
+        $register =
+        "INSERT INTO `formule`(`name`, `dessert`,`boisson`)  
+        VALUES (:name, :dessert, :boisson)";
+        $parameters['name']=$name;
+        $parameters['dessert']=$dessert;
+        $parameters['boisson']= $boisson;
+        $key= $this->db->executeSql($register, $parameters);
+        return $key;
+    }
+
 }
+
 

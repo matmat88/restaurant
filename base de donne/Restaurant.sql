@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  ven. 02 août 2019 à 17:08
+-- Généré le :  lun. 05 août 2019 à 14:48
 -- Version du serveur :  5.7.27-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.19-0ubuntu0.18.04.1
 
@@ -64,15 +64,17 @@ CREATE TABLE `element` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
-<<<<<<< HEAD
 -- Déchargement des données de la table `element`
-=======
--- Contenu de la table `element`
->>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 
 INSERT INTO `element` (`id`, `type`, `name`, `prix`, `stock`, `idMedia`) VALUES
-(8, 'boisson', 'ddddd', 3.5, 0, 7);
+(8, 'boisson', 'Citron', 3.5, 0, 7),
+(9, 'dessert', 'Choco Coco', 3, 0, 24),
+(10, 'dessert', 'Perles de Chia', 3, 0, 25),
+(11, 'boisson', 'Menthe', 3, 0, 26),
+(12, 'dessert', 'Sorbet coco', 3, 0, 27),
+(13, 'dessert', 'Sorbet Litchi', 3, 0, 28),
+(14, 'dessert', 'Sorbet mangue', 3, 0, 29);
 
 -- --------------------------------------------------------
 
@@ -160,11 +162,7 @@ CREATE TABLE `media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
-<<<<<<< HEAD
 -- Déchargement des données de la table `media`
-=======
--- Contenu de la table `media`
->>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 
 INSERT INTO `media` (`id`, `name`, `type`) VALUES
@@ -190,7 +188,13 @@ INSERT INTO `media` (`id`, `name`, `type`) VALUES
 (20, 'oignon.jpg', 'image/jpeg'),
 (21, 'poussesdesoja.jpg', 'image/jpeg'),
 (22, 'salade.jpg', 'image/jpeg'),
-(23, 'algue.jpg', 'image/jpeg');
+(23, 'algue.jpg', 'image/jpeg'),
+(24, 'chocococo.jpg', 'image/jpeg'),
+(25, 'perlesdechiamangue.jpg', 'image/jpeg'),
+(26, 'menthe.jpg', 'image/jpeg'),
+(27, 'sorbetcoco.jpg', 'image/jpeg'),
+(28, 'sorbetlitchi.jpg', 'image/jpeg'),
+(29, 'sorbetmangue.jpg', 'image/jpeg');
 
 -- --------------------------------------------------------
 
@@ -356,35 +360,26 @@ ALTER TABLE `commande`
 -- AUTO_INCREMENT pour la table `element`
 --
 ALTER TABLE `element`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
-=======
->>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 -- AUTO_INCREMENT pour la table `formule`
 --
 ALTER TABLE `formule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `ingredient`
 --
 ALTER TABLE `ingredient`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-<<<<<<< HEAD
 
-=======
->>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
-=======
->>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 -- AUTO_INCREMENT pour la table `reservation`
 --
@@ -402,10 +397,7 @@ ALTER TABLE `tables`
 --
 ALTER TABLE `utilisateur`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-<<<<<<< HEAD
 
-=======
->>>>>>> eb4a4a81b47e1907ea96d5e458bc34206a72cdf1
 --
 -- Contraintes pour les tables déchargées
 --
