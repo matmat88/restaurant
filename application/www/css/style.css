@@ -167,9 +167,17 @@ height: 100px;
     text-align: center;
 }
 
-#formuleSelect {
-    
+#formuleSelect div {
+    margin: 10px;
+    display: block;
 }
+#formuleSelect a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
 
 
 
