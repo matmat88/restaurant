@@ -5,8 +5,9 @@
 body {
     width: 95%;
     margin: auto;
-    background-color: rgb(54, 53, 53);
+    background-color: rgb(77, 73, 73);
     background-image: url(../images/background.png);
+    color: rgb(0, 0, 0);
 }
 header a {
     text-decoration: none;
@@ -157,6 +158,10 @@ height: 100px;
 #macommande div {
     display: flex;
     flex-wrap: wrap;
+    display: inline-block;
+}
+#macommande h4 {
+    display: inline;
 }
 .menusimple div {
     display: flex;
@@ -173,7 +178,11 @@ height: 100px;
 }
 #formuleSelect a {
     text-decoration: none;
-    color: black;
+    color: white;
+}
+#ingredientView {
+    display: flex;
+
 }
 
 
